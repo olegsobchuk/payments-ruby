@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: 127.0.0.1
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  port: 5432
+  user: postgres
+  password: password
+
+development:
+  <<: *default
+  database: payments_dev
+
+test:
+  <<: *default
+  database: payments_test
+
+production:
+  <<: *default
+  database: payments_prod
+  username: payments_ruby
+  password: <%= ENV['PAYMENTS_DATABASE_PASSWORD'] %>
