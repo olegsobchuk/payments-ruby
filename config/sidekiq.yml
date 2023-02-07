@@ -1,0 +1,15 @@
+:queues:
+  - [critical, 10]
+  - [default, 5]
+  - [mailers, 3] # default for mailers
+
+production:
+  :concurrency: 25
+development:
+  :concurrency: 1
+
+:scheduler:
+  :schedule:
+    hello_world:
+      cron: '0 */1 * * * *'   # Runs every hour
+      class: TransactionCleaner

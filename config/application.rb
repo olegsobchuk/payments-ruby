@@ -15,5 +15,19 @@ module PaymentsRuby
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    config.active_record.schema_format = :sql
+    config.active_job.queue_adapter = :sidekiq
+    config.generators do |g|
+      g.test_framework :rspec
+      g.helper_specs false
+      g.controller_specs true
+      g.view_specs false
+      g.routing_specs false
+      g.request_specs false
+      g.template_engine :slim
+      g.stylesheets false
+      g.helper false
+    end
   end
 end

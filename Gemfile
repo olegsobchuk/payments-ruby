@@ -1,14 +1,15 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.0'
+ruby '3.0.5'
 
-gem 'rails', '~> 6.0.3'
-gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 4.1'
+gem 'rails', '~> 6.0.0'
+gem 'pg', '1.4.4'
+gem 'puma', '~> 6.0.2'
 gem 'sass-rails', '>= 6'
-gem 'sidekiq', '~> 7.0.3'
-gem 'slim', '~> 3.0', '>= 3.0.6'
+gem 'sidekiq', '< 7'
+gem 'sidekiq-scheduler'
+gem 'slim-rails' , '~> 3.5.1'
 gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
