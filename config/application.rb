@@ -29,5 +29,6 @@ module PaymentsRuby
       g.stylesheets false
       g.helper false
     end
+    config.active_record.dump_schema_after_migration = false
   end
 end
