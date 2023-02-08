@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Transaction < ApplicationRecord
   enum status: {
     pending: :pending,
@@ -6,6 +8,15 @@ class Transaction < ApplicationRecord
     refunded: :refunded,
     error: :error
   }
-  valudate :amount, numericality: { greater_than: 0 }
 
+  belongs_to :merchant
+  belongs_to :customer
+
+  validates :amount, numericality: { greater_than: 0 }
+
+  class << self
+    def total_amount
+      sum(:amount)
+    end
+  end
 end

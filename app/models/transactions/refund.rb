@@ -1,3 +1,5 @@
-class Refund < Transaction
+# frozen_string_literal: true
 
+module Transactions
+  class Refund < Transaction; end
 end

@@ -1,16 +1,18 @@
+# frozen_string_literal: true
+
 class Merchant < ApplicationRecord
   enum status: {
     active: :active,
     inactive: :inactive
   }
 
-  has_many :transactions
-  has_many :customers, trough: :transactions
+  has_many :transactions, inverse_of: :merchant
+  has_many :customers, through: :transactions
 
-  validation :name, presence: true
-  validation :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :name, presence: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   def total_transactions_sum
-    transactions.sum
+    transactions.total_amount
   end
 end
