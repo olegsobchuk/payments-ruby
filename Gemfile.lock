@@ -212,6 +212,20 @@ GEM
       unicode-display_width (>= 2.4.0, < 3.0)
     rubocop-ast (1.24.1)
       parser (>= 3.1.1.0)
+    rubocop-capybara (2.17.0)
+      rubocop (~> 1.41)
+    rubocop-performance (1.16.0)
+      rubocop (>= 1.7.0, < 2.0)
+      rubocop-ast (>= 0.4.0)
+    rubocop-rails (2.17.4)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 1.33.0, < 2.0)
+    rubocop-rspec (2.18.1)
+      rubocop (~> 1.33)
+      rubocop-capybara (~> 2.17)
+    rubocop-thread_safety (0.4.4)
+      rubocop (>= 0.53.0)
     ruby-progressbar (1.11.0)
     rubyzip (2.3.2)
     rufus-scheduler (3.8.2)
@@ -307,7 +321,11 @@ DEPENDENCIES
   rails (~> 6.0.0)
   redis (~> 4.0)
   rspec-rails (~> 5.1.2)
-  rubocop (~> 1.45)
+  rubocop
+  rubocop-performance
+  rubocop-rails
+  rubocop-rspec
+  rubocop-thread_safety
   sass-rails (>= 6)
   selenium-webdriver
   shoulda-matchers (~> 5.0)
