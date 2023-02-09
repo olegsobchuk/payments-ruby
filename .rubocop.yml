@@ -17,3 +17,12 @@ Style/Documentation:
   Exclude:
     - 'spec/**/*'
     - 'test/**/*'
+
+RSpec/NestedGroups:
+  Description: Checks for nested example groups.
+  Enabled: false
+  Max: 3
+  AllowedGroups: []
+  VersionAdded: '1.7'
+  VersionChanged: '2.13'
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/NestedGroups

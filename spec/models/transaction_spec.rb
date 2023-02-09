@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe Transaction, type: :model do
+RSpec.describe Transaction do
   describe 'validations' do
-    it { should belong_to(:merchant) }
-    it { should belong_to(:customer) }
+    it { is_expected.to belong_to(:merchant) }
+    it { is_expected.to belong_to(:customer) }
   end
 
   describe 'class methods' do
