@@ -6,7 +6,7 @@ class Merchant < ApplicationRecord
     inactive: :inactive
   }
 
-  has_many :transactions, inverse_of: :merchant
+  has_many :transactions, dependent: :restrict_with_exception, inverse_of: :merchant
   has_many :customers, through: :transactions
 
   validates :name, presence: true
