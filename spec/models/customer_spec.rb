@@ -7,22 +7,60 @@ RSpec.describe Customer, type: :model do
   end
 
   describe 'validations' do
-    context 'email without @' do
-      let(:email) { 'somee.mail.com' }
+    describe 'email' do
+      context 'without @' do
+        let(:email) { 'somee.mail.com' }
 
-      it { should_not allow_value(email).for(:email) }
+        it { should_not allow_value(email).for(:email) }
+      end
+
+      context 'without host' do
+        let(:email) { 'somee.mail.com@' }
+
+        it { should_not allow_value(email).for(:email) }
+      end
+
+      context 'when valid' do
+        let(:email) { 'some.e@meail.com' }
+
+        it { should allow_value(email).for(:email) }
+      end
     end
 
-    context 'email without host' do
-      let(:email) { 'somee.mail.com@' }
+    describe 'phone' do
+      let(:customer) { build(:customer, phone: phone) }
 
-      it { should_not allow_value(email).for(:email) }
-    end
+      before { customer.valid? }
 
-    context 'email valid' do
-      let(:email) { 'some.e@meail.com' }
+      context 'with nil value' do
+        let(:phone) { nil }
 
-      it { should allow_value(email).for(:email) }
+        it { expect(customer.errors[:phone]).to match_array([]) }
+      end
+
+      context 'with valid value without +' do
+        let(:phone) { '123-3121212' }
+
+        it { expect(customer.errors[:phone]).to match_array([]) }
+      end
+
+      context 'with valid value with +' do
+        let(:phone) { '+123-3121212' }
+
+        it { expect(customer.errors[:phone]).to match_array([]) }
+      end
+
+      context 'with chars' do
+        let(:phone) { '+38000123456A' }
+
+        it { expect(customer.errors[:phone]).not_to match_array([]) }
+      end
+
+      context 'with spaces' do
+        let(:phone) { '123 42' }
+
+        it { expect(customer.errors[:phone]).not_to match_array([]) }
+      end
     end
   end
 end
