@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Merchant, type: :model do
+RSpec.describe Merchant do
   describe 'associations' do
     it { should have_many(:transactions) }
     it { should have_many(:customers).through(:transactions) }
