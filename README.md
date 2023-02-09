@@ -1,24 +1,28 @@
-# README
+# Payment-ruby test app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby 3.0.5
+* Rails 6
 
-Things you may want to cover:
+To install app
 
-* Ruby version
+```
+git clone git@github.com:olegsobchuk/payments-ruby.git
+cd payments-ruby
+bundle
+rake db:create db:migrate
+```
 
-* System dependencies
+To run tests
 
-* Configuration
+```
+rails db:migrate RAILS_ENV=test
+rspec spec
+```
 
-* Database creation
+to import merchants
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+rake merchants:import_csv['/full/path/to/file.csv']
+```
+take into account, merchant file should have header with names `name,description,email,status`
+each record goes through validation, so be ready that not all records will make it.
