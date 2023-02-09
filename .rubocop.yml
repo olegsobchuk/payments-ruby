@@ -1,7 +1,6 @@
 require:
   - rubocop-performance    # https://docs.rubocop.org/rubocop-performance/cops.html
   - rubocop-rails          # https://docs.rubocop.org/rubocop-rails/cops.html
-  - rubocop-thread_safety  # https://github.com/covermymeds/rubocop-thread_safety/tree/master/lib/rubocop/cop/thread_safety
   - rubocop-rspec          # https://docs.rubocop.org/rubocop-rspec/cops.html
 
 AllCops:

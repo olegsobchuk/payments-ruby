@@ -31,7 +31,6 @@ group :development, :test do
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
-  gem 'rubocop-thread_safety', require: false
 end
 
 group :development do
