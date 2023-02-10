@@ -12,4 +12,4 @@ development:
   :schedule:
     hello_world:
       cron: '0 */1 * * * *'   # Runs every hour
-      class: TransactionCleaner
+      class: Transactions::CleanerJob
