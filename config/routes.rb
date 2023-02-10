@@ -9,4 +9,9 @@ Rails.application.routes.draw do
 
   root 'landing#index'
   get 'landing/index'
+
+  resources :transactions,
+            only: :create,
+            constraints: ->(req) { %i[json xml].includes?(req.format) },
+            default: :json
 end

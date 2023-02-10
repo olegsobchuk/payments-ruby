@@ -30,5 +30,6 @@ module PaymentsRuby
       g.helper false
     end
     config.active_record.dump_schema_after_migration = false
+    config.autoload_paths += %W[#{config.root}/app/managers]
   end
 end
