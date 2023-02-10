@@ -28,4 +28,4 @@ take into account, merchant file should have header with names `name,description
 each record goes through validation, so be ready that not all records will make it.
 
 
-[DOCKER INFO](doc/DOCKER.md)
+[DOCKER INFO](docs/DOCKER.md)
